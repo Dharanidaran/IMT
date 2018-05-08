@@ -19,9 +19,7 @@ csvReader = csv.reader(fileobject,delimiter =";")
 stop_iter = 1
 for row in csvReader:
 
-	print(row[13],row[19].replace(";",""))
-	if stop_iter == 10000:
+	print("%s;%s"%(stop_iter,row[19].replace(";","").replace("\n","")))
+	if stop_iter == 5000:
 		break
 	stop_iter = stop_iter+1
-
-	print(stop_iter)

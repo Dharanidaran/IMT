@@ -16,11 +16,16 @@ documents = ["Human machine interface for lab abc computer applications",
 ]
 
 
+
+
+
 stoplist = set('for a of the and to in'.split())
 
 
 documents_array = [[word for word in document.lower().split() if word not in stoplist]
 		for document in documents]
+
+
 
 
 # # # ===============================
@@ -99,34 +104,34 @@ print("\n\n")
 # # # Corpus Streaming - One document at a Time
 # # # ===============================
 
-class MyCorpus(object):
-	def __init__(self,filepath,delimiter,textColumnNo):
+# class MyCorpus(object):
+# 	def __init__(self,filepath,delimiter,textColumnNo):
 
-		self.filepath = filepath
-		self.delimiter = delimiter
-		self.textColumnNo = textColumnNo
+# 		self.filepath = filepath
+# 		self.delimiter = delimiter
+# 		self.textColumnNo = textColumnNo
 
-	def __iter__(self):
-		for line in open(self.filepath,'r'):
-			print(len(line.split(";")))
-			desiredcolumn = line.split(self.delimiter)[self.textColumnNo-1]
-			# print(desiredcolumn.lower())
-			yield desiredcolumn.lower().split()
+# 	def __iter__(self):
+# 		for line in open(self.filepath,'r'):
+# 			print(len(line.split(";")))
+# 			desiredcolumn = line.split(self.delimiter)[self.textColumnNo-1]
+# 			# print(desiredcolumn.lower())
+# 			yield desiredcolumn.lower().split()
 
-import os
-from pprint import pprint
-cwd = os.getcwd()
-filename = "OneStar.csv"
-delimiter = ";"
-textColumnNo = 20
-filepath = os.path.join(cwd,"Data",filename)
-print(filepath)
+# import os
+# from pprint import pprint
+# cwd = os.getcwd()
+# filename = "OneStar.csv"
+# delimiter = ";"
+# textColumnNo = 20
+# filepath = os.path.join(cwd,"Data",filename)
+# print(filepath)
 
 
-mem_friendly_corpus_instance = MyCorpus(filepath,delimiter,textColumnNo)
+# mem_friendly_corpus_instance = MyCorpus(filepath,delimiter,textColumnNo)
 
-dictionary = corpora.Dictionary([row for row in mem_friendly_corpus_instance])
-print(dictionary)
+# dictionary = corpora.Dictionary([row for row in mem_friendly_corpus_instance])
+# print(dictionary)
 
 
 

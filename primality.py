@@ -9,7 +9,6 @@ knowPrimes = [2,3]
 
 def printPrime( primeRange = 100):
 
-
 	startTime = time.time()
 	for number in range(5,primeRange,2):
 	    isprime = True
@@ -30,8 +29,8 @@ def printPrime( primeRange = 100):
 	    if isprime == True:
 	        knowPrimes.append(number)
 
-	print(knowPrimes)
+	print(len(knowPrimes))
 	print("Time taken in seconds " ,time.time()-startTime)
 
 
-printPrime(1000)
+printPrime(100000)
